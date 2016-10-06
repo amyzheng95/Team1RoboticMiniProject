@@ -4,8 +4,8 @@ Servo servoBig;  // create servo object to control a servo
 Servo servoSmall;
 
 // variable to store the servo position
-int servo1Pos = 0;    
-int servo2Pos = 0;
+int servoBigPos = 0;    
+int servoSmallPos = 0;
 
 const int loadCellVolt = 3;
 
