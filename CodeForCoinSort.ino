@@ -11,11 +11,9 @@ Servo servoBig;  // create servo object to control a servo
 Servo servoSmall;
 
 // variable to store the servo position
-int servoBigPos = 0;    
-int servoSmallPos = 0;
-
-//!!!!!!!!!!!!!!! will have a conflict with the above pin, cause the DOUT is set to 3
-const int loadCellVolt = 3;//
+int posBig = 0;    
+int posSmall = 0;
+double loadCellMass;
 
 void setup() {
   //load cell reading---------------------Copied from the load cell file
@@ -44,22 +42,24 @@ void loop() {
   }
   //-----------------------------------------------
   
-  int posBig = 0;
-  int posSmall = 0;
+  posBig = 0;
+  posSmall = 0;
   servoBig.write(posBig);
   servoSmall.wrote(posSmall);
   
-  //Not exactly sure if scale.get_units() is the readings of the weight
-  if(<scale.get_units() < )//$2
+  //GET LOAD CELL MASS, STORE IN loadCellMass:
+  //loadCellMass = ();
+  
+  if(loadCellMass < 2.5)//dime (mass = 1.75g)
   {
-    posBig = 35;//positon for bigger servo
+    posBig = 35;//positon for gear
     servoBig.write(posBig);
     delay(3000);
-    posSmall = 180;//position for smaller servo
+    posSmall = 180;//position for coin holder
     servoSmall.write(posSmall);
   }
   
-  else if ( <scale.get_units() < )//$1
+  else if (loadCellMass < 4.1) //nickle (mass = 3.95g)
   {
     posBig = 70;
     servoBig.write(posBig);
@@ -68,7 +68,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-  else if (< scale.get_units() < )//$0.25
+  else if (loadCellMass < 5.0) //quarter (mass = 4.4g)
   {
     posBig = 105;
     servoBig.write(posBig);
@@ -77,7 +77,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-  else if (< scale.get_units() < )//$0.10
+  else if (loadCellMass < 6.5)//loonie (mass = 6.27g)
   {
     posBig = 140;
     servoBig.write(posBig);
@@ -86,7 +86,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-    else (< scale.get_units()< )//$0.05
+    else (loadCellMass < 7) //toonie (mass = 6.92g)
   {
     posBig = 175;
     servoBig.write(posBig);
