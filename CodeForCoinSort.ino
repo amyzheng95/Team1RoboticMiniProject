@@ -14,7 +14,8 @@ Servo servoSmall;
 int servoBigPos = 0;    
 int servoSmallPos = 0;
 
-const int loadCellVolt = 3;
+//!!!!!!!!!!!!!!! with have a conflict with the above pin, cause the DOUT is set to 3
+const int loadCellVolt = 3;//
 
 void setup() {
   //load cell reading---------------------Copied from the load cell file
