@@ -31,6 +31,8 @@ void setup() {
 
 void loop() {
   //Reading the scale----
+  scale.set_scale(calibration_factor); //Adjust to this calibration factor
+  
   if(Serial.available())
   {
     char temp = Serial.read();
