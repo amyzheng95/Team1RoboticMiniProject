@@ -30,6 +30,16 @@ void setup() {
 }
 
 void loop() {
+  //Reading the scale----
+  if(Serial.available())
+  {
+    char temp = Serial.read();
+    if(temp == '+' || temp == 'a')
+      calibration_factor += 10;
+    else if(temp == '-' || temp == 'z')
+      calibration_factor -= 10;
+  }
+  //---------------------
   
   int posBig = 0;
   int posSmall = 0;
