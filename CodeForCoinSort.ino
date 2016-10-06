@@ -1,11 +1,11 @@
 #include <Servo.h>
 #include "HX711.h"
-//Load cell --------------
+//Load cell --------------Copied from the load cell file
 #define DOUT  3
 #define CLK  2
 HX711 scale(DOUT, CLK);
 float calibration_factor = -7050; //-7050 worked for my 440lb max scale setup
-//---------------------
+//---------------------------------------------
 
 Servo servoBig;  // create servo object to control a servo
 Servo servoSmall;
@@ -17,20 +17,20 @@ int servoSmallPos = 0;
 const int loadCellVolt = 3;
 
 void setup() {
-  //load cell reading
+  //load cell reading---------------------Copied from the load cell file
   scale.set_scale();
   scale.tare();  //Reset the scale to 0
   long zero_factor = scale.read_average(); //Get a baseline reading
   Serial.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
   Serial.println(zero_factor);
-  //-----------------------
+  //-----------------------------------------------------------
   
   servoBig.attach(A0);  // attaches the servo on pin 9 to the servo object
   servoSmall.attach(A1); 
 }
 
 void loop() {
-  //Reading the scale----
+  //Reading the scale----Copied from the load cell file
   scale.set_scale(calibration_factor); //Adjust to this calibration factor
   
   if(Serial.available())// not too sure what this does, have to test it out
@@ -41,13 +41,14 @@ void loop() {
     else if(temp == '-' || temp == 'z')
       calibration_factor -= 10;
   }
-  //---------------------
+  //-----------------------------------------------
   
   int posBig = 0;
   int posSmall = 0;
   servoBig.write(posBig);
   servoSmall.wrote(posSmall);
   
+  //Not exactly sure if scale.get_units() is the readings of the weight
   if(<scale.get_units() < )//$2
   {
     posBig = 35;
