@@ -1,4 +1,11 @@
 #include <Servo.h>
+#include "HX711.h"
+//Load cell --------------
+#define DOUT  3
+#define CLK  2
+HX711 scale(DOUT, CLK);
+float calibration_factor = -7050; //-7050 worked for my 440lb max scale setup
+//---------------------
 
 Servo servoBig;  // create servo object to control a servo
 Servo servoSmall;
