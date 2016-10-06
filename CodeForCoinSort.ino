@@ -17,6 +17,14 @@ int servoSmallPos = 0;
 const int loadCellVolt = 3;
 
 void setup() {
+  //load cell reading
+  scale.set_scale();
+  scale.tare();  //Reset the scale to 0
+  long zero_factor = scale.read_average(); //Get a baseline reading
+  Serial.print("Zero factor: "); //This can be used to remove the need to tare the scale. Useful in permanent scale projects.
+  Serial.println(zero_factor);
+  //-----------------------
+  
   servoBig.attach(A0);  // attaches the servo on pin 9 to the servo object
   servoSmall.attach(A1); 
 }
