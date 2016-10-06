@@ -14,7 +14,7 @@ Servo servoSmall;
 int servoBigPos = 0;    
 int servoSmallPos = 0;
 
-//!!!!!!!!!!!!!!! with have a conflict with the above pin, cause the DOUT is set to 3
+//!!!!!!!!!!!!!!! will have a conflict with the above pin, cause the DOUT is set to 3
 const int loadCellVolt = 3;//
 
 void setup() {
@@ -52,10 +52,10 @@ void loop() {
   //Not exactly sure if scale.get_units() is the readings of the weight
   if(<scale.get_units() < )//$2
   {
-    posBig = 35;
+    posBig = 35;//positon for bigger servo
     servoBig.write(posBig);
     delay(3000);
-    posSmall = 180;
+    posSmall = 180;//position for smaller servo
     servoSmall.write(posSmall);
   }
   
