@@ -33,7 +33,7 @@ void loop() {
   //Reading the scale----
   scale.set_scale(calibration_factor); //Adjust to this calibration factor
   
-  if(Serial.available())
+  if(Serial.available())// not too sure what this does, have to test it out
   {
     char temp = Serial.read();
     if(temp == '+' || temp == 'a')
@@ -48,7 +48,7 @@ void loop() {
   servoBig.write(posBig);
   servoSmall.wrote(posSmall);
   
-  if(loadCellVolt < )
+  if(<scale.get_units() < )//$2
   {
     posBig = 35;
     servoBig.write(posBig);
@@ -57,7 +57,7 @@ void loop() {
     servoSmall.write(posSmall);
   }
   
-  else if (loadCellVolt < )
+  else if ( <scale.get_units() < )//$1
   {
     posBig = 70;
     servoBig.write(posBig);
@@ -66,7 +66,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-  else if (loadCellVolt < )
+  else if (< scale.get_units() < )//$0.25
   {
     posBig = 105;
     servoBig.write(posBig);
@@ -75,7 +75,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-  else if (loadCellVolt < )
+  else if (< scale.get_units() < )//$0.10
   {
     posBig = 140;
     servoBig.write(posBig);
@@ -84,7 +84,7 @@ void loop() {
     servoSmall.write(posSmall);    
   }
   
-    else (loadCellVolt < )
+    else (< scale.get_units()< )//$0.05
   {
     posBig = 175;
     servoBig.write(posBig);
